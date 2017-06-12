@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="DeliveryServer" targetNamespace="http://bean.server.mycompany.com/" xmlns:tns="http://bean.server.mycompany.com/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" 
+ >
+    <message name="addOrder"/>
+    <message name="addOrderResponse"/>
+    <message name="addDistrict"/>
+    <message name="addDistrictResponse"/>
+    <message name="addProduct"/>
+    <message name="addProductResponse"/>
+    <message name="getDistrict"/>
+    <message name="getDistrictResponse"/>
+    <message name="getProduct"/>
+    <message name="getProductResponse"/>
+    <message name="getLocation"/>
+    <message name="getLocationResponse"/>
+    <message name="getShortestHamiltonianCycle"/>
+    <message name="getShortestHamiltonianCycleResponse"/>
+    <message name="getNavigationCycle"/>
+    <message name="getNavigationCycleResponse"/>
+    <message name="getLocationLatLng"/>
+    <message name="getLocationLatLngResponse"/>
+    <message name="getNavigationGA"/>
+    <message name="getNavigationGAResponse"/>
+    <message name="Exception"/>
+    <message name="getPacking"/>
+    <message name="getPackingResponse"/>
+    <portType name="DeliveryBeanCRUD">
+        <operation name="addOrder">
+            <input message="tns:addOrder"/>
+            <output message="tns:addOrderResponse"/>
+        </operation>
+        <operation name="addDistrict">
+            <input message="tns:addDistrict"/>
+            <output message="tns:addDistrictResponse"/>
+        </operation>
+        <operation name="addProduct">
+            <input message="tns:addProduct"/>
+            <output message="tns:addProductResponse"/>
+        </operation>
+        <operation name="getDistrict">
+            <input message="tns:getDistrict"/>
+            <output message="tns:getDistrictResponse"/>
+        </operation>
+        <operation name="getProduct">
+            <input message="tns:getProduct"/>
+            <output message="tns:getProductResponse"/>
+        </operation>
+        <operation name="getLocation">
+            <input message="tns:getLocation"/>
+            <output message="tns:getLocationResponse"/>
+        </operation>
+        <operation name="getShortestHamiltonianCycle">
+            <input message="tns:getShortestHamiltonianCycle"/>
+            <output message="tns:getShortestHamiltonianCycleResponse"/>
+        </operation>
+        <operation name="getNavigationCycle">
+            <input message="tns:getNavigationCycle"/>
+            <output message="tns:getNavigationCycleResponse"/>
+        </operation>
+        <operation name="getLocationLatLng">
+            <input message="tns:getLocationLatLng"/>
+            <output message="tns:getLocationLatLngResponse"/>
+        </operation>
+        <operation name="getNavigationGA">
+            <input message="tns:getNavigationGA"/>
+            <output message="tns:getNavigationGAResponse"/>
+            <fault name="Exception" message="tns:Exception"/>
+        </operation>
+        <operation name="getPacking">
+            <input message="tns:getPacking"/>
+            <output message="tns:getPackingResponse"/>
+        </operation>
+    </portType>
+    <binding name="DeliveryBeanCRUDPortBinding" type="tns:DeliveryBeanCRUD">
+        <wsp:PolicyReference URI="#DeliveryBeanCRUDPortBindingPolicy"/>
+        <operation name="addOrder">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="addDistrict">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="addProduct">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getDistrict">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getProduct">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getLocation">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getShortestHamiltonianCycle">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getNavigationCycle">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getLocationLatLng">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getNavigationGA">
+            <input/>
+            <output/>
+            <fault name="Exception"/>
+        </operation>
+        <operation name="getPacking">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="DeliveryServer">
+        <port name="DeliveryBeanCRUDPort" binding="tns:DeliveryBeanCRUDPortBinding"/>
+    </service>
+    <wsp:Policy wsu:Id="DeliveryBeanCRUDPortBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <tcp:OptimizedTCPTransport enabled="true"/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</definitions>
